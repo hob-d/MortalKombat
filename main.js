@@ -1,4 +1,4 @@
-const arenas = document.querySelector('.arenas');
+const $arenas = document.querySelector('.arenas');
 
 const player1 = {
   name: 'Scorpion',
@@ -20,27 +20,27 @@ const player2 = {
   },
 };
 
-function createPlayer(classname, {name: playername, hp, img: imgSource}) {
-  const player = document.createElement('div');
-  const progressbar  = document.createElement('div');
-  const character  = document.createElement('div');
-  const life = document.createElement('div');
-  const name = document.createElement('div');
-  const img = document.createElement('img');
+function createPlayer(className, { name, hp, img }) {
+  const $player = document.createElement('div');
+  const $progressbar  = document.createElement('div');
+  const $character  = document.createElement('div');
+  const $life = document.createElement('div');
+  const $name = document.createElement('div');
+  const $img = document.createElement('img');
 
-  player.classList.add(`${classname}`);
-  progressbar.classList.add('progressbar');
-  character.classList.add('character');
-  life.classList.add('life');
-  name.classList.add('name');
-  img.src = imgSource;
-  life.style.width = `${hp}%`;
-  name.innerText = playername;
+  $player.classList.add(`${className}`);
+  $progressbar.classList.add('progressbar');
+  $character.classList.add('character');
+  $life.classList.add('life');
+  $name.classList.add('name');
+  $img.src = img;
+  $life.style.width = `${hp}%`;
+  $name.innerText = name;
 
-  progressbar.append(life, name);
-  character.append(img);
-  player.append(progressbar, character);
-  arenas.append(player);
+  $progressbar.append($life, $name);
+  $character.append($img);
+  $player.append($progressbar, $character);
+  $arenas.append($player);
 }
 
 createPlayer('player1', player1);
